@@ -9,3 +9,6 @@
       %li.song
         .player
           %iframe{src:"https://embed.spotify.com/?uri=spotify:track:#{song.spotify_id}", width: "560", height: "80", frameborder:"0", allowtransparency: "true"}
+
+.share
+  = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
