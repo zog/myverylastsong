@@ -1,14 +1,14 @@
 window.MySongs = class
   constructor: (container, @userID)->
     @container = $(container)
-    @container.show()
     @loadSongs()
     @newSong = @container.find("#new_song")
-    @newSong.show()
     @newSongInput = @newSong.find("input[type=text]")
     $('#myLink').show().attr('href', $('#myLink').attr('href') + @userID)
     $('#myLink').html $('#myLink').attr('href')
     $('.share iframe').attr 'src', $('.share iframe').attr('src') + @userID
+    $('.logged').show()
+    $('.unlogged').hide()
     @newSong.submit (e)=>
       val = @newSongInput.val()
       $.ajax
