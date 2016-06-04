@@ -1,0 +1,43 @@
+%fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();"}
+
+.disclaimer HERE ARE YOUR SONGS :
+
+#songs
+  %ul.songs
+    %li.template.song
+      .name{data: {attr: 'name'}}
+      .artists{data: {attr: 'artists', loop: true}}
+        .artist
+          .name{data: {attr: 'name'}}
+
+  %form#new_song
+    %p Add more songs
+    .row
+      .col-md-8
+        %input.form-control{type: :text, value: 'bohemian'}
+      .col-md-4
+        %input.btn.btn-primary{type: :submit, id: 'new_song_bt', value: 'Go'}
+
+  %ul.results
+    %li.template.result.row
+      .col-md-8
+        %input.song-id{type: :hidden, data: {attr: 'id'}}
+        .name{data: {attr: 'name'}}
+        .artists{data: {attr: 'artists', loop: true}}
+          .artist
+            .name{data: {attr: 'name'}}
+      .col-md-4
+        = link_to "Add", [:songs], class: 'add-song btn btn-success'
+
+  .share
+    Use this link to share your very last playlist:
+    %p= link_to root_url, root_url, id: "myLink"
+
+    Or use Facebook:
+    %p
+      %iframe{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"20", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
+
+  </div>
+
+- content_for :scripts do
+  = javascript_include_tag :facebook

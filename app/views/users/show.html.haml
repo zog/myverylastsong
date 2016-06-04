@@ -1,0 +1,11 @@
+.disclaimer
+  I am&nbsp;
+  %span.name<>= @user.name
+  , and those are the songs I wish to be played during my funerals :
+
+#songs
+  %ul.songs
+    - @songs.each do |song|
+      %li.song
+        .player
+          %iframe{src:"https://embed.spotify.com/?uri=spotify:track:#{song.spotify_id}", width: "560", height: "80", frameborder:"0", allowtransparency: "true"}
