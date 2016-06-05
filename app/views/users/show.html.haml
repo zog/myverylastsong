@@ -1,23 +1,27 @@
-.disclaimer
-  I am&nbsp;
-  %span.name<>= @user.name
-  , and those are the songs I wish to be played during my funerals :
+.left.col-md-4
+  .disclaimer.block
+    I am&nbsp;
+    %span.name<>= @user.name
+    , and those are the songs I wish to be played during my funerals
 
-#songs
-  %ul.songs
-    - @songs.order(:seq).each do |song|
-      %li.song
-        .player
-          %iframe{src:"https://embed.spotify.com/?uri=spotify:track:#{song.spotify_id}", width: "100%", height: "100", frameborder:"0", allowtransparency: "true"}
-        .badges
-          - if song.valid_itunes_link?
-            = link_to song.itunes_link, target: :blank do
-              = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
-          - elsif song.itunes_link.nil?
-            = link_to '#', target: :blank, class: 'fetch-itunes-link', data: {id: song.spotify_id} do
-              = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
-.share
-  = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
+  .share.block
+    = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
+
+.right.col-md-8
+  #songs
+    %ul.songs
+      %li.template
+      - @songs.order(:seq).each do |song|
+        %li.song
+          .player.col-md-8
+            %iframe{src:"https://embed.spotify.com/?uri=spotify:track:#{song.spotify_id}", width: "100%", height: "100", frameborder:"0", allowtransparency: "true"}
+          .badges.col-md-4
+            - if song.valid_itunes_link?
+              = link_to song.itunes_link, target: :blank do
+                = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
+            - elsif song.itunes_link.nil?
+              = link_to '#', target: :blank, class: 'fetch-itunes-link', data: {id: song.spotify_id} do
+                = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
 
 - content_for :scripts do
   = javascript_include_tag :badges

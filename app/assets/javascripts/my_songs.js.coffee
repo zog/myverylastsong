@@ -3,7 +3,7 @@ window.MySongs = class
     @container = $(container)
     @loaded = false
     @loadSongs()
-    @newSong = @container.find("#new_song")
+    @newSong = @container.find("#new_song form")
     @newSongInput = @newSong.find("input[type=text]")
     $('#myLink').show().attr('href', $('#myLink').attr('href') + @userID)
     $('#myLink').html $('#myLink').attr('href')
@@ -70,7 +70,7 @@ window.MySongs = class
       @removeSong $(e.target).parents('.song')
       e.preventDefault()
       false
-    $(".songs").sortable
+    $("ul.songs").sortable
       placeholder: "ui-state-highlight"
       stop: =>
         @saveSequence()

@@ -32,15 +32,15 @@
   - body_class = "#{yield :extra_body_class} #{controller_name} #{action_name}".strip
   %body{class: body_class}
     .scroll-wrapper
-      .inner-scroll-wrapper
+      .inner-scroll-wrapper.row
         #header
-          = image_tag "skull.png"
           %h1 My Very Last Song
-          .baseline Don't let your friends bad taste ruin the most important day of your
-          %span.stroke life
-          %span.death death
-          = "."
-        #content
+          .baseline
+            Don't let your friends bad taste ruin
+            %br
+            the most important day of your life
+
+        #content.row
           = yield
 
     = javascript_include_tag "application"

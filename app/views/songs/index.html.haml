@@ -1,18 +1,8 @@
-.unlogged
-  %h3 First please login:
-  %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
+.left.col-md-4
 
-.logged
-  %h3 Your very last songs:
-  #songs
-    %ul.songs
-      %li.template.song
-        = render partial: 'shared/song_details'
-        .col-md-2
-          = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
-
-    %form#new_song
-      %p Add more songs
+  .block#new_song.logged
+    %h4.ion-plus.ion-bt Add more songs
+    %form
       .row
         .col-md-12
           .input-group
@@ -29,20 +19,38 @@
             .name{data: {attr: 'name'}}
             .artists{data: {attr: 'artists', loop: true}}
               .artist.row
-                .col-md-1.ion-person
-                .col-md-10{data: {attr: 'name'}}
+                .col-xs-1.ion-person
+                .col-xs-10{data: {attr: 'name'}}
             .album.row
-              .col-md-1.ion-disc
-              .col-md-10{data: {attr: 'album.name'}}
+              .col-xs-1.ion-disc
+              .col-xs-10{data: {attr: 'album.name'}}
             = link_to "Add", [:songs], class: 'add-song btn btn-success ion-plus ion-bt'
 
-    .share
-      Use this link to share your very last playlist:
-      %p= link_to root_url, root_url, id: "myLink"
+  .share.block.logged
+    %h4.ion-share.ion-bt Share
+    Use this link to share your very last playlist:
+    %p= link_to root_url, root_url, id: "myLink"
 
-      Or use Facebook:
-      %p
-        %iframe{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
+    Or use Facebook:
+    %p
+      %iframe{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
+
+
+
+
+.right.col-md-8
+  .unlogged
+    %h3 First please login:
+    %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
+
+  .logged
+    #songs
+      %ul.songs
+        %li.template.song
+          = render partial: 'shared/song_details'
+          .col-md-1
+            = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
+
 
 
 - content_for :scripts do
