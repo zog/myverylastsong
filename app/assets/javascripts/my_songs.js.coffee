@@ -56,7 +56,9 @@ window.MySongs = class
           $(item).html value
 
   appendSong: (data)->
-    @songsContainer ?= @container.find('.songs')
+    @songsContainer ?= @container.find('#songs .songs')
+    @noSong ?= @songsContainer.find('.no-songs')
+    @noSong.hide()
     tpl = @songsContainer.find('.template')
     out = tpl.clone()
     out.removeClass 'template'
@@ -80,19 +82,25 @@ window.MySongs = class
     setTimeout =>
       out.removeClass 'behind'
     , 1100
-    @saveSequence()
+    if @loaded
+      @saveSequence()
+
+  songItems: ->
+    @songsContainer.find('.song:not(.template):not(.no-songs)')
 
   removeSong: (tgt)->
     data = tgt.data('data')
     $.ajax
       method: "delete"
       url: "/songs/#{data.id}"
-      success: ->
+      success: =>
         tgt.remove()
+        if @songItems().length == 0
+          @noSong.show()
 
   saveSequence: ->
     seq = []
-    for s in @songsContainer.find('.song:not(.template)')
+    for s in @songItems()
       seq.push $(s).data("data")["id"]
 
     $.ajax

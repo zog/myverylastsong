@@ -1,6 +1,11 @@
 require "open-uri"
 
 class Song < ActiveRecord::Base
+
+  def self.top limit=3
+    group(:spotify_id).limit(limit).count.keys.map{|k| Song.where(spotify_id: k).last}
+  end
+
   def to_front
     out = attributes.dup
     out["id"] = out.delete("spotify_id")

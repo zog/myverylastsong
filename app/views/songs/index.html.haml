@@ -35,12 +35,14 @@
     %p
       %iframe{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
 
-
+  = render partial: "shared/top"
 
 
 .right.col-md-8
   .unlogged
-    %h3 First please login:
+    .explain
+      Don't mess with your last appearance on Earth, let anyone know which songs you want to be played during your funerals.
+    %h3 To get started, please first login:
     %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
 
   .logged
@@ -50,8 +52,19 @@
           = render partial: 'shared/song_details'
           .col-md-1
             = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
+        %li.song.no-songs
+          There is no song in your playlist yet. You may want to use the
+          %a
+            "Add more song" feature.
 
 
 
 - content_for :scripts do
   = javascript_include_tag :facebook
+  :coffeescript
+    $(".no-songs a").click (e)->
+      e.preventDefault()
+      $('#new_song').addClass 'highlight'
+      setTimeout ->
+        $('#new_song').removeClass 'highlight'
+      , 1000
