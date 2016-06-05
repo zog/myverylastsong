@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     collection do
       patch :update_sequence
     end
+
+    member do
+      get :itunes_link
+    end
   end
 
   get '/:user_id', to: 'users#show'

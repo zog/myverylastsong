@@ -9,6 +9,14 @@ class SongsController < ApplicationController
     end
   end
 
+  def itunes_link
+    load_song
+    unless @song.itunes_link.present?
+      @song.fetch_itunes_link
+    end
+    render json: {itunes_link: @song.itunes_link}
+  end
+
   def update_sequence
     params[:sequence].each_with_index do |id, i|
       Song.where(spotify_id: id).update_all seq: i
@@ -17,8 +25,8 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    song = Song.where(spotify_id: params[:id]).last
-    song.destroy
+    load_song
+    @song.destroy
     render json: {status: 'ok'}
   end
 
@@ -29,5 +37,10 @@ class SongsController < ApplicationController
     s = Song.new data
     s.save!
     render json: {status: 'ok'}
+  end
+
+  private
+  def load_song
+    @song = Song.where(spotify_id: params[:id]).last
   end
 end
