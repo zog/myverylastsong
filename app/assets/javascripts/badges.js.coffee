@@ -6,5 +6,6 @@ $ ->
         method: 'get'
         url: "/songs/#{id}/itunes_link"
         success: (data)->
-          $a.removeClass 'fetch-itunes-link'
-          $a.attr 'href', data.itunes_link
+          if data.itunes_link?
+            $a.removeClass 'fetch-itunes-link'
+            $a.attr 'href', data.itunes_link

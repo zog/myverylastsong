@@ -14,7 +14,11 @@ class SongsController < ApplicationController
     unless @song.itunes_link.present?
       @song.fetch_itunes_link
     end
-    render json: {itunes_link: @song.itunes_link}
+    if @song.valid_itunes_link?
+      render json: {itunes_link: @song.itunes_link}
+    else
+      render json: {status: 'not_found'}
+    end
   end
 
   def update_sequence
