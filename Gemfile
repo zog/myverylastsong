@@ -28,6 +28,23 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'rb-fchange', :require=>false
+gem 'rb-fsevent', :require=>false
+gem 'rb-inotify', :require=>false
+gem 'rsense'
+# Guard
+gem 'guard'
+gem 'guard-bundler'
+gem 'guard-rails'
+gem 'guard-rspec'
+gem 'rspec', '>=3.0'
+gem 'rspec-its'
+gem 'guard-spork', '1.5.1'
+gem 'guard-livereload', '1.0.3'
+gem 'listen', '1.3.0'
+gem 'spork', '1.0.0rc3'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

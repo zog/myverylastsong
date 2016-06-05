@@ -3,10 +3,23 @@ class SongsController < ApplicationController
     respond_to do |f|
       f.html
       f.json do
-        songs = Song.where(user_id: params[:user_id])
-        render json: songs
+        songs = Song.where(user_id: params[:user_id]).order(:seq)
+        render json: songs.map(&:to_front)
       end
     end
+  end
+
+  def update_sequence
+    params[:sequence].each_with_index do |id, i|
+      Song.where(spotify_id: id).update_all seq: i
+    end
+    render json: {status: 'ok'}
+  end
+
+  def destroy
+    song = Song.where(spotify_id: params[:id]).last
+    song.destroy
+    render json: {status: 'ok'}
   end
 
   def create

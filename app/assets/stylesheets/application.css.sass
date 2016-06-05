@@ -14,29 +14,37 @@
  *= require_self
  */
 
+$color-red: #B11D2A
+$bg-color: #86B091
+
 #header
   text-align: center
   font-size: 1.2em
   img
     width: 250px
   .death
-    color: #B11D2A
+    color: $color-red
 
 .unlogged
   margin-top: 20px
   text-align: center
 
-.logged, .template
+.logged, .template, .no-results
   display: none
+
+.ion-bt:before
+  margin-right: 10px
 
 body
   font-family: Helvetica, Arial, Sans-serif
-  background-color: #86B091
+  background-color: $bg-color
 
 .scroll-wrapper
-  max-width: 600px
+  max-width: 640px
   margin: auto
   padding-bottom: 200px
+  padding-left: 20px
+  padding-right: 20px
 
 ul
   padding: 0
@@ -58,26 +66,99 @@ li
 .results
   margin-top: 20px
 
-.result
+.result, .no-results
   border-bottom: 1px solid #ccc
   background: white
   padding: 20px
+  overflow: hidden
+  position: relative
+  z-index: 10
+  .btn
+    position: absolute
+    right: -20px
+    top: -20px
+    bottom: -20px
+    width: 83px
+    padding-top: 29px
+    border-radius: 0
+    text-indent: 1000px
+    &:before
+      font-size: 3em
+      position: absolute
+      left: 50%
+      top: 50%
+      text-indent: 0
+      transform: translate(-50%, -50%)
+
+
+.result, .song
+  .name
+    font-size: 1.2em
+    font-weight: bold
 
 .share
   background: white
   padding: 20px
+  margin-top: 20px
 
 #songs
+  overflow: hidden
   .song
     background: black
     color: white
     padding: 20px
+    overflow: hidden
     margin-top: 1px
+    cursor: ns-resize
+    transition: transform 1s
+    transform: translateY(0%)
+    z-index: 10
+    position: relative
+    border: 1px solid $bg-color
+    img
+      height: 120px
+    .delete
+      color: $color-red
+      width: 27px
+      height: 27px
+      line-height: 1em
+      display: block
+      overflow: hidden
+      font-size: 2em
+      opacity: 0
+      transition: opacity 0.3s
+
+    &.hidden
+      transform: translateY(-100%)
+      display: block !important
+
+    &.behind
+      z-index: 5
+
+    &:hover
+      .delete
+        opacity: 1
+
+  .ui-state-highlight
+    margin-top: 1px
+    width: 600px
+    height: 160px
+    border: 1px dashed #ccc
+    background-color: rgba(255,255,255,0.3)
 
 #new_song
   border: 1px solid white
   padding: 20px
+  margin-top: 20px
   background-color: #A1D4AE
+  input[type=text]
+    height: 48px
+    outline: none
+  .input-group-addon input
+    border: none
+    background: none
+    outline: none
+    box-shadow: none
   p
     font-weight: bold
     text-transform: uppercase

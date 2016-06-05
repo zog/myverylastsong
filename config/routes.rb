@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'songs#index'
-  resources :songs
+  resources :songs do
+    collection do
+      patch :update_sequence
+    end
+  end
 
   get '/:user_id', to: 'users#show'
   post '/users', to: 'users#upsert'

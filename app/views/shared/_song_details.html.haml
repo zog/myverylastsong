@@ -1,0 +1,11 @@
+.col-md-3
+  %img{data: {attr: 'album.images.0.url', target: 'src'}}
+.col-md-7
+  .name{data: {attr: 'name'}}
+  .artists{data: {attr: 'artists', loop: true}}
+    .artist.row
+      .col-md-1.ion-person
+      .col-md-10{data: {attr: 'name'}}
+  .album.row
+    .col-md-1.ion-disc
+    .col-md-10{data: {attr: 'album.name'}}
