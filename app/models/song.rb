@@ -7,8 +7,18 @@ class Song < ActiveRecord::Base
     out
   end
 
+  def artist_name
+    if artists.size > 0
+      artists.first["name"]
+    end
+  end
+
+  def full_name
+    [artist_name, name].compact.join(' - ')
+  end
+
   def fetch_itunes_link
-    url = "https://itunes.apple.com/search?term=#{URI.encode self.name}&media=music"
+    url = "https://itunes.apple.com/search?term=#{URI.encode self.full_name}&media=music"
     data = JSON.parse open(url).read
     res = data["results"]
     if res.size > 0
