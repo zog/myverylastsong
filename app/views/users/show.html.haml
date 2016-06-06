@@ -4,10 +4,10 @@
     %span.name<>= @user.name
     , and those are the songs I wish to be played during my funerals
 
-  .share.block
+  .only-desktop.share.block
     = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
 
-  = render partial: "shared/top"
+  .only-desktop= render partial: "shared/top"
 
 .right.col-md-8
   #songs
@@ -24,6 +24,13 @@
             - elsif song.itunes_link.nil?
               = link_to '#', target: :blank, class: 'fetch-itunes-link', data: {id: song.spotify_id} do
                 = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
+
+
+.only-mobile.col-md-12
+  .share.block
+    = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
+
+.only-mobile.col-md-12= render partial: "shared/top"
 
 - content_for :scripts do
   = javascript_include_tag :badges

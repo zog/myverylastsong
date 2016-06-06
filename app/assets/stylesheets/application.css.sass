@@ -19,6 +19,28 @@
 $color-red: #B11D2A
 $bg-color: black
 
+html
+  height: 100%
+
+body
+  font-family: 'Antic Didone', serif
+  background-color: $bg-color
+  background-image: url(/assets/bg.jpg)
+  background-position: 50% 50%
+  background-size: cover
+  min-height: 100%
+
+.scroll-wrapper
+  max-width: 1240px
+  margin: auto
+  padding-bottom: 0px
+  margin-bottom: 80px
+  padding-left: 20px
+  padding-right: 20px
+
+.inner-scroll-wrapper
+  margin: 0
+
 #header
   text-align: left
   font-size: 1.2em
@@ -50,19 +72,7 @@ $bg-color: black
 .ion-bt:before
   margin-right: 10px
 
-body
-  font-family: 'Antic Didone', serif
-  background-color: $bg-color
-  background-image: url(/assets/bg.jpg)
-  background-position: fixed
-  background-size: 100% auto
 
-.scroll-wrapper
-  max-width: 1240px
-  margin: auto
-  padding-bottom: 200px
-  padding-left: 20px
-  padding-right: 20px
 
 ul
   padding: 0
@@ -247,8 +257,25 @@ footer
   border-top: 1px solid #ccc
   overflow: hidden
   background-color: rgba(0,0,0,0.5)
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+
+.only-desktop
+  display: block
+.only-mobile
+  display: none
 
 @media (max-width: 980px)
+  #header
+    text-align: center
+    h1
+      float: none
+  .only-desktop
+    display: none
+  .only-mobile
+    display: block
   #songs .song
     position: relative
     img
