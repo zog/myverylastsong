@@ -21,6 +21,7 @@
       %meta{property: "og:title", content: "MyVeryLastSong - #{@user.try(:name)}"}
       %meta{property: "og:description", content: "#{@user.first_name} shared his very last playlist, the one he wants you to play during #{@user.pronoun} funerals"}
     %meta{property: "og:image", content: image_url("candle.jpg")}
+    %meta{property: "fb:app_id", content: (Rails.env.development? ? '1576628125970347' : '1576626152637211')}
 
     = favicon_link_tag 'favicon.ico'
     %link{:href => image_url("apple-icon-57x57.png"), :rel => "apple-touch-icon", :sizes => "57x57"}/
@@ -60,6 +61,11 @@
 
         #content.row
           = yield
+
+    %footer
+      .copy.pull-right
+        made by
+        = link_to "@zog_zog", "http://twitter.com/zog_zog", target: :blank
 
     = javascript_include_tag "application"
     = yield :scripts
