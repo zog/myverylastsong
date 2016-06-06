@@ -1,6 +1,4 @@
 statusChangeCallback = (response) ->
-  console.log 'statusChangeCallback'
-  console.log response
   # The response object is returned with a status field that lets the
   # app know the current login status of the person.
   # Full docs on the response object can be found in the documentation
@@ -34,8 +32,7 @@ checkLoginState = ->
 # successful.  See statusChangeCallback() for when this call is made.
 
 connected = ->
-  console.log 'Welcome!  Fetching your information.... '
-  FB.api '/me', (response) ->
+  FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
     $.ajax
       method: "post"
       url: "/users"

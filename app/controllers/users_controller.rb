@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   def upsert
     u = User.where(fb_id: params[:id]).last
     u ||= User.new fb_id: params[:id]
-    u.name = params[:name]
+    u.first_name = params[:first_name]
+    u.last_name = params[:last_name]
+    u.gender = params[:gender]
     u.save
     render json: {status: 'ok'}
   end

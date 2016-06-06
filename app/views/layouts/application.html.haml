@@ -17,9 +17,10 @@
     %meta{name: "mobile-web-app-capable", content: "yes"}/
     %meta{name: "apple-mobile-web-app-status-bar-style", content: "black"}/
     %meta{property: "og:type", content: "website"}
-    %meta{property: "og:title", content: "MyVeryLastSong - #{@user.try(:name)}"}
-    %meta{property: "og:description", content: "Don't let your friends bad taste ruin the most important day of your death"}
-    %meta{property: "og:image", content: image_url("skull.png")}
+    - if @user
+      %meta{property: "og:title", content: "MyVeryLastSong - #{@user.try(:name)}"}
+      %meta{property: "og:description", content: "#{@user.first_name} shared his very last playlist, the one he wants you to play during #{@user.pronoun} funerals"}
+    %meta{property: "og:image", content: image_url("candle.png")}
 
     = favicon_link_tag 'favicon.ico'
     = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', media: 'all'

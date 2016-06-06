@@ -128,7 +128,6 @@ window.MySongs = class
       url: '/songs'
       data: {song: data}
       success: =>
-        console.log 'added'
         @appendSong data
         @newSongInput.val("")
         @resetResults()
