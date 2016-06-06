@@ -1,4 +1,4 @@
-statusChangeCallback = (response) ->
+window.statusChangeCallback = (response) ->
   # The response object is returned with a status field that lets the
   # app know the current login status of the person.
   # Full docs on the response object can be found in the documentation
@@ -22,7 +22,7 @@ statusChangeCallback = (response) ->
 # Button.  See the onlogin handler attached to it in the sample
 # code below.
 
-checkLoginState = ->
+window.checkLoginState = ->
   FB.getLoginStatus (response) ->
     statusChangeCallback response
     return
@@ -31,7 +31,7 @@ checkLoginState = ->
 # Here we run a very simple test of the Graph API after login is
 # successful.  See statusChangeCallback() for when this call is made.
 
-connected = ->
+window.connected = ->
   FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
     $.ajax
       method: "post"
