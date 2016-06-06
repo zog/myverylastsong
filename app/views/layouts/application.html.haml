@@ -47,6 +47,7 @@
     = yield :styles
     =# javascript_include_tag 'critical'
     = csrf_meta_tags
+    = yield :early_scripts
 
   - body_class = "#{yield :extra_body_class} #{controller_name} #{action_name}".strip
   %body{class: body_class}

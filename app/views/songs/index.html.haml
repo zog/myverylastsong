@@ -61,8 +61,10 @@
 
 
 
-- content_for :scripts do
+- content_for :early_scripts do
   = javascript_include_tag :facebook
+
+- content_for :scripts do
   :coffeescript
     $(".no-songs a").click (e)->
       e.preventDefault()
