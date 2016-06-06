@@ -46,6 +46,9 @@ body
   font-size: 1.2em
   color: white
   margin-bottom: 40px
+  a
+    color: white
+    text-decoration: none
   h1
     font-weight: bold
     position: relative
@@ -171,12 +174,15 @@ li
 #songs
   overflow: hidden
   background-color: rgba(0,0,0,0.8)
+  &.edit
+    .song
+      cursor: ns-resize
   .song
     color: white
     padding: 20px
     overflow: hidden
     margin-top: 1px
-    cursor: ns-resize
+
     transition: transform 1s
     transform: translateY(0%)
     z-index: 10

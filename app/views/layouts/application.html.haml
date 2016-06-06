@@ -53,11 +53,12 @@
     .scroll-wrapper
       .inner-scroll-wrapper.row
         #header
-          %h1 My Very Last Song
-          .baseline
-            Don't let your friends bad taste ruin
-            %br
-            the most important day of your “life”
+          = link_to "/" do
+            %h1 My Very Last Song
+            .baseline
+              Don't let your friends bad taste ruin
+              %br
+              the most important day of your “life”
 
         #content.row
           = yield

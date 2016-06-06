@@ -48,7 +48,7 @@
     %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
 
   .logged
-    #songs
+    #songs.edit
       %ul.songs
         %li.template.song
           = render partial: 'shared/song_details'
