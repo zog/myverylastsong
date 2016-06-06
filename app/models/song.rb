@@ -23,14 +23,20 @@ class Song < ActiveRecord::Base
   end
 
   def fetch_itunes_link
-    url = "https://itunes.apple.com/search?term=#{URI.encode self.full_name}&media=music"
-    data = JSON.parse open(url).read
-    res = data["results"]
-    if res.size > 0
-      update_attribute :itunes_link, res[0]["collectionViewUrl"]
+    other = Song.where(spotify_id: self.spotify_id).where("itunes_link != ?", "not_found").where('itunes_link IS NOT NULL').last
+    if other
+      link = other.itunes_link
     else
-      update_attribute :itunes_link, "not_found"
+      url = "https://itunes.apple.com/search?term=#{URI.encode self.full_name}&media=music"
+      data = JSON.parse open(url).read
+      res = data["results"]
+      if res.size > 0
+        link = res[0]["collectionViewUrl"]
+      else
+        link = "not_found"
+      end
     end
+    update_attribute :itunes_link, link
   end
 
   def valid_itunes_link?
