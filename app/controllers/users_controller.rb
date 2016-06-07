@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @user = User.where(fb_id: params[:user_id]).last
+    @user = User.where(uuid: params[:user_id]).last
+    @user ||= User.where(fb_id: params[:user_id]).last
     @songs = Song.where(user_id: params[:user_id])
   end
 
@@ -11,6 +12,6 @@ class UsersController < ApplicationController
     u.last_name = params[:last_name]
     u.gender = params[:gender]
     u.save
-    render json: {status: 'ok'}
+    render json: {status: 'ok', userId: u.uuid}
   end
 end

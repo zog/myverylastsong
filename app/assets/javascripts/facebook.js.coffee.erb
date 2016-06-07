@@ -37,7 +37,8 @@ window.connected = ->
       method: "post"
       url: "/users"
       data: response
-  new MySongs("#content", FB.getUserID())
+      success: (data)->
+        new MySongs("#content", data.userId)
 
 window.fbAsyncInit = ->
   FB.init
