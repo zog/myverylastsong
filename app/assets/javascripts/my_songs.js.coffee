@@ -25,6 +25,7 @@ window.MySongs = class
     $('.logo .avatar').attr 'src', url
     setTimeout =>
       $('.logo .avatar').addClass 'visible'
+      $('.logo .avatar-skull').removeClass 'visible'
       @spinDisk()
     , 10
 

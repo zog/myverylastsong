@@ -12,30 +12,20 @@ window.statusChangeCallback = (response) ->
     # The person is logged into Facebook, but not your app.
     # document.getElementById('status').innerHTML = 'Please log ' + 'into this app.'
   else
-    $("#login").show()
+    $("#login").click (e)->
+      e.preventDefault()
+      FB.login (response) ->
+        statusChangeCallback response
+      , scope: 'public_profile,email'
+      false
     # The person is not logged into Facebook, so we're not sure if
     # they are logged into this app or not.
     # document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.'
-  return
-
-# This function is called when someone finishes with the Login
-# Button.  See the onlogin handler attached to it in the sample
-# code below.
-
-window.checkLoginState = ->
-  FB.getLoginStatus (response) ->
-    statusChangeCallback response
-    return
-  return
-
-# Here we run a very simple test of the Graph API after login is
-# successful.  See statusChangeCallback() for when this call is made.
 
 window.connected = ->
-
-
-  FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
+  FB.api '/me',  {fields: 'first_name, last_name, gender, bio'}, (response) ->
     id = response.id
+    console.log response
     $.ajax
       method: "post"
       url: "/users"

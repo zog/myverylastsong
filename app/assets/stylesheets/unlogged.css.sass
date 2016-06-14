@@ -1,0 +1,160 @@
+@import variables
+
+@keyframes shake
+  0%, 100%
+    transform: rotate(-2deg)
+
+  50%
+    transform: rotate(2deg)
+
+.unlogged
+  text-align: center
+  .logo
+    margin: auto
+    width: 300px
+    height: 300px
+    background: transparent
+    border: none
+    .dot
+      display: none
+    // .disk-container
+    //   .disk
+    //     animation-duration: 2s
+    //     animation-iteration-count: infinite
+    //     animation-name: shake
+    //   .avatar-skull
+    //     animation-name: spinDisk
+    //     animation-duration: 3s
+    //     animation-iteration-count: infinite
+    //     animation-timing-function: linear
+  .explain
+    font-size: 2em
+    color: black
+    margin-bottom: 20px
+    margin-top: 20px
+    text-align: center
+
+  .fb-login
+    width: 250px
+    display: inline-block
+    position: relative
+    text-align: center
+    margin-bottom: 20px
+  .why
+    color: $grey
+    position: relative
+    cursor: pointer
+    height: 30px
+    .reason
+      display: none
+      margin-top: 10px
+      padding: 10px
+      border: 1px solid $light-grey
+    &:hover
+      .reason
+        text-decoration: none
+        display: block
+    &:after
+      content: ""
+      position: absolute
+      left: 50%
+      width: 200px
+      margin-left: -100px
+      top: 30px
+      background: $light-grey
+      height: 1px
+  .top
+    border-bottom: 2px solid black
+    margin-top: 100px
+    .songs
+      overflow: hidden
+      padding-left: 10%
+      padding-right: 10%
+      margin-bottom: 0
+    .song
+      float: left
+      width: 25%
+      height: 120px
+      clear: none
+      margin-bottom: 6px
+      span
+        display: block
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+      .dash
+        display: none
+      .song-name
+        font-size: 12px
+      &:after
+        position: absolute
+        border: 2px solid black
+        content: ""
+        left: 10%
+        right: 10%
+        height: 10px
+        bottom: -8px
+        border-top-left-radius: 5px
+        border-top-right-radius: 5px
+      &:hover .details
+        transform: translateX(-50%) translateY(0%)
+    .details
+      position: absolute
+      left: 50%
+      top: 0
+      bottom: 0
+      width: 120px
+      background: rgba(0,0,0,0.6)
+      padding: 40px 5px
+      transform: translateX(-50%) translateY(-100%)
+      transition: transform 0.3s
+      text-align: left
+      font-size: 10px
+      margin: 0
+      .name
+        color: $light-grey
+    .cover
+      position: relative
+      height: 100%
+      width: auto
+      text-align: center
+      margin-left: 50%
+      transform: translateX(-50%)
+      img
+        height: 100%
+        width: auto
+        display: inline-block
+        border: 2px solid black
+
+@media (max-width: 680px)
+  .unlogged .top
+    .songs
+      padding: 0
+
+@media (max-width: 500px)
+  .unlogged .top
+    .songs
+      border: none
+      .song
+        border: 1px solid black
+        background: black
+        &:after
+          display: none
+        width: 50%
+        height: auto
+        margin: 0
+        .cover, img
+          width: 100%
+          height: auto
+          border: 1px solid black
+        .details
+          transform: none
+          left: 0
+          top: 50%
+          padding: 10px
+          right: 0
+          width: auto
+          font-size: 14px
+          .song-name
+            font-size: 16px
+

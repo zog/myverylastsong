@@ -17,6 +17,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700)
 @import variables
 @import logo
+@import unlogged
 
 html
   height: 100%
@@ -27,10 +28,11 @@ body
   min-height: 100%
   background-attachment: fixed
   font-weight: lighter
-
-.scroll-wrapper
   max-width: 900px
   margin: auto
+  position: relative
+
+.scroll-wrapper
   padding-bottom: 80px
   padding-left: 20px
   padding-right: 20px
@@ -47,21 +49,23 @@ body
   border-bottom: 1px solid $light-grey
   padding-bottom: 20px
   font-weight: lighter
-
   a
     color: white
     text-decoration: none
   h1
+    margin: 20px 100px 0
     font-weight: lighter
     letter-spacing: 3px
     color: $light-grey
     text-transform: uppercase
     font-size: 1em
+    &:hover
+      color: $grey
 
   .credits
     position: absolute
     left: 0
-    top: 0
+    top: -4px
     color: black
 
 h2
@@ -69,12 +73,6 @@ h2
   margin-top: 0
   margin-bottom: 20px
 
-.unlogged
-  margin-top: 20px
-  text-align: center
-  p
-    color: #eee
-    margin-top: 10px
 
 .logged, .template, .no-results
   display: none
@@ -88,11 +86,6 @@ ul
 li
   list-style-type: none
   padding: 0
-
-.explain
-  font-size: 2em
-  color: white
-  margin-bottom: 20px
 
 .stroke
   text-decoration: line-through
@@ -207,44 +200,48 @@ h4
     font-size: 16px
     &:hover
       background-color: darken($light-grey, 10%)
-  .fb-share
-    background-color: $fb-blue
-    padding: 13px 20px 12px 45px
+.fb-share, .fb-login
+  background-color: $fb-blue
+  padding: 13px 20px 12px 45px
+  color: white
+  width: 100%
+  display: block
+  border-radius: 3px
+  font-size: 16px
+  text-decoration: none
+  position: relative
+  height: 48px
+  &:hover
+    background-color: darken($fb-blue, 10%)
     color: white
-    width: 100%
-    display: block
-    border-radius: 3px
-    font-size: 16px
     text-decoration: none
-    position: relative
-    height: 48px
-    &:hover
-      background-color: darken($fb-blue, 10%)
-    .ion
-      color: $fb-blue
-      display: inline-block
+  .ion
+    color: $fb-blue
+    display: inline-block
+    position: absolute
+    z-index: 10
+    top: 18px
+    left: 22px
+    &:after
+      z-index: -1
+      content: ""
+      background: white
+      width: 17px
+      height: 16px
+      left: -5px
+      bottom: 3px
       position: absolute
-      z-index: 10
-      top: 18px
-      left: 22px
-      &:after
-        z-index: -1
-        content: ""
-        background: white
-        width: 17px
-        height: 16px
-        left: -5px
-        bottom: 3px
-        position: absolute
 .right
   h3
     color: white
     margin-top: 0
 
 #songs
-  margin-top: 15px
+  margin-top: 25px
   overflow: hidden
   counter-reset: songs
+  h4
+    margin-bottom: 0
   ol
     padding-left: 40px
   &.edit
@@ -363,17 +360,25 @@ h4
 
 footer
   padding: 10px 20px
-  color: #ccc
+  color: $light-grey
   a
-    color: #ccc
-  border-top: 1px solid #333
+    color: $light-grey
+  border-top: 1px solid $light-grey
   overflow: hidden
-  background-color: rgba(0,0,0,0.5)
-  position: fixed
+  z-index: 15
+  text-align: center
+  text-transform: uppercase
+  padding-top: 20px
+  padding-bottom: 30px
+  position: absolute
   bottom: 0
   left: 0
   right: 0
-  z-index: 15
+  background: url(/assets/skull-emoji.png)
+  background-position: 5% 20px
+  background-repeat: no-repeat
+  font-weight: lighter
+
 
 .only-desktop
   display: block

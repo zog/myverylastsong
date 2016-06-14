@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>skull</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M75,78.5415976 C84.2062404,70.3017893 90,58.3274972 90,45 C90,20.1471863 69.8528137,0 45,0 C20.1471863,0 0,20.1471863 0,45 C0,58.3274972 5.79375959,70.3017893 15,78.5415976 L15,85.9999745 C15,88.2035752 16.793796,90 19.0065556,90 L70.9934444,90 C73.2043192,90 75,88.2091276 75,85.9999745 L75,78.5415976 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.949019608   0 0 0 0 0.823529412   0 0 0 0 0.611764706  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#F9D1C4" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F1C691" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="1.63315717" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="1.63315717" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-469.000000, -143.000000)">
+            <g id="hero" transform="translate(186.000000, 96.000000)">
+                <g id="logo" transform="translate(236.000000, 0.000000)">
+                    <g id="skull" transform="translate(47.000000, 47.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g>
+                            <use fill="#F5EBAA" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        </g>
+                        <path d="M52,13.1818182 L43,14.8181818 L43,23 L42.9399891,23 C42.6620269,24.1411202 41.4513747,25 40,25 C38.3431458,25 37,23.8807119 37,22.5 C37,21.1192881 38.3431458,20 40,20 C40.7683544,20 41.4692435,20.2407113 42,20.6365779 L42,14 L42,11 L53,9 L53,12 L53,21 L52.9399891,21 C52.6620269,22.1411202 51.4513747,23 50,23 C48.3431458,23 47,21.8807119 47,20.5 C47,19.1192881 48.3431458,18 50,18 C50.7683544,18 51.4692435,18.2407113 52,18.6365779 L52,13.1818182 Z" id="Combined-Shape" fill="#F2D29C" mask="url(#mask-2)"></path>
+                        <g id="teeth" mask="url(#mask-2)">
+                            <g transform="translate(18.000000, 72.000000)" id="tooth">
+                                <rect fill="#FFFFFF" x="0" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(2.000000, 7.000000) scale(1, -1) translate(-2.000000, -7.000000) " x="0" y="5" width="4" height="4" rx="2"></rect>
+                                <rect fill="#29271C" x="5" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(7.000000, 7.500000) scale(1, -1) translate(-7.000000, -7.500000) " x="5" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="10" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(12.000000, 7.500000) scale(1, -1) translate(-12.000000, -7.500000) " x="10" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#FFFFFF" x="15" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(17.000000, 7.500000) scale(1, -1) translate(-17.000000, -7.500000) " x="15" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="20" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(22.000000, 7.500000) scale(1, -1) translate(-22.000000, -7.500000) " x="20" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="25" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(27.000000, 7.500000) scale(1, -1) translate(-27.000000, -7.500000) " x="25" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="30" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(32.000000, 7.500000) scale(1, -1) translate(-32.000000, -7.500000) " x="30" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#FFFFFF" x="35" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(37.000000, 7.500000) scale(1, -1) translate(-37.000000, -7.500000) " x="35" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="40" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(42.000000, 7.500000) scale(1, -1) translate(-42.000000, -7.500000) " x="40" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#29271C" x="45" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(47.000000, 7.500000) scale(1, -1) translate(-47.000000, -7.500000) " x="45" y="5" width="4" height="5" rx="2"></rect>
+                                <rect fill="#FFFFFF" x="50" y="0" width="4" height="4" rx="2"></rect>
+                                <rect fill="#FFFFFF" transform="translate(52.000000, 7.000000) scale(1, -1) translate(-52.000000, -7.000000) " x="50" y="5" width="4" height="4" rx="2"></rect>
+                            </g>
+                        </g>
+                        <g id="eye" mask="url(#mask-2)">
+                            <g transform="translate(7.000000, 23.000000)">
+                                <circle id="eye" fill="#82FFFE" cx="25" cy="18" r="7"></circle>
+                                <circle id="eye" fill="#82C7FF" cx="18" cy="11" r="7"></circle>
+                                <circle id="dot" fill="#FF9A82" cx="8" cy="8" r="1"></circle>
+                                <circle id="dot" fill="#FF9A82" cx="28" cy="8" r="1"></circle>
+                                <circle id="dot" fill="#FF9A82" cx="8" cy="28" r="1"></circle>
+                                <circle id="dot" fill="#E182FF" cx="18" cy="1" r="1"></circle>
+                                <circle id="dot" fill="#E182FF" cx="1" cy="18" r="1"></circle>
+                                <circle id="eye" fill="#82FFFE" cx="11" cy="18" r="7"></circle>
+                                <circle id="eye" fill="#82C7FF" cx="18" cy="25" r="7"></circle>
+                                <circle id="eye" fill="#28271C" cx="18" cy="18" r="7"></circle>
+                                <path d="M20,18 C20,19.1045695 19.1045695,20 18,20 C16.8954305,20 16,19.1045695 16,18 L20,18 L20,18 Z" id="eye" fill="#FFD959"></path>
+                            </g>
+                        </g>
+                        <g id="eye" mask="url(#mask-2)">
+                            <g transform="translate(53.000000, 39.000000) scale(-1, 1) translate(-53.000000, -39.000000) translate(23.000000, 23.000000)">
+                                <circle id="eye" fill="#82C8FF" cx="25" cy="18" r="7"></circle>
+                                <circle id="eye" fill="#82FFFE" cx="18" cy="11" r="7"></circle>
+                                <circle id="dot" fill="#E182FF" cx="8" cy="8" r="1"></circle>
+                                <circle id="dot" fill="#E182FF" cx="28" cy="8" r="1"></circle>
+                                <circle id="dot" fill="#E182FF" cx="8" cy="28" r="1"></circle>
+                                <circle id="dot" fill="#FF9A82" cx="18" cy="1" r="1"></circle>
+                                <circle id="dot" fill="#FF9A82" cx="1" cy="18" r="1"></circle>
+                                <circle id="eye" fill="#82C8FF" cx="11" cy="18" r="7"></circle>
+                                <circle id="eye" fill="#82FFFE" cx="18" cy="25" r="7"></circle>
+                                <circle id="eye" fill="#28271C" cx="18" cy="18" r="7"></circle>
+                                <path d="M20,18 C20,19.1045695 19.1045695,20 18,20 C16.8954305,20 16,19.1045695 16,18 L20,18 L20,18 Z" id="eye" fill="#FFA959"></path>
+                                <path d="M20,18 C20,16.8954305 19.1045695,16 18,16 C16.8954305,16 16,16.8954305 16,18 L20,18 L20,18 L20,18 Z" id="eye" fill="#FFD959"></path>
+                                <path d="M60,18 C60,16.8954305 59.1045695,16 58,16 C56.8954305,16 56,16.8954305 56,18 L60,18 L60,18 L60,18 Z" id="eye" fill="#FFAA59"></path>
+                            </g>
+                        </g>
+                        <polygon id="nose" fill="#29271C" mask="url(#mask-2)" points="45 52 52 61 38 61"></polygon>
+                        <path d="M74.9399891,67 C74.6620269,68.1411202 73.4513747,69 72,69 C70.3431458,69 69,67.8807119 69,66.5 C69,65.1192881 70.3431458,64 72,64 C72.7683544,64 73.4692435,64.2407113 74,64.6365779 L74,57 L75,57 L75,67 L74.9399891,67 Z M75,61 L79,61 L75,58 L75,61 Z" id="music" fill="#FCAD8B" mask="url(#mask-2)"></path>
+                        <path d="M15.0600109,67 C15.3379731,68.1411202 16.5486253,69 18,69 C19.6568542,69 21,67.8807119 21,66.5 C21,65.1192881 19.6568542,64 18,64 C17.2316456,64 16.5307565,64.2407113 16,64.6365779 L16,57 L15,57 L15,67 L15.0600109,67 L15.0600109,67 Z M15,61 L11,61 L15,58 L15,61 L15,61 Z" id="music" fill="#E59AEB" mask="url(#mask-2)"></path>
+                        <polygon id="shadow" fill="url(#linearGradient-4)" filter="url(#filter-5)" mask="url(#mask-2)" points="15 58 15 78 -5 78"></polygon>
+                        <polygon id="shadow" fill="url(#linearGradient-4)" filter="url(#filter-6)" mask="url(#mask-2)" points="75 58 95 78 75 78"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

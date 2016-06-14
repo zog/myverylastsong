@@ -1,15 +1,17 @@
+- limit ||= 3
+
 .block.top
   %h4 Top songs
   %ul.songs
-    - Song.top.each do |song|
+    - Song.top(limit).each do |song|
       %li.song
         .cover
           = image_tag song.album["images"]["0"]["url"] rescue nil
         .details
           .name
-            = song.artist_name
-            —
-            = song.name
+            %span.artist-name= song.artist_name
+            %span.dash —
+            %span.song-name= song.name
           .album
             = song.album["name"]
 

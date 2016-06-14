@@ -46,7 +46,7 @@
       animation-name: scratchDisk
       animation-duration: 0.5s
 
-  .avatar, .avatar-mask
+  .avatar, .avatar-mask, .avatar-skull
     border-radius: 300px
     position: absolute
     top: 50%
@@ -56,9 +56,13 @@
     margin-top: -30%
     margin-left: -30%
 
-  .avatar
-    opacity: 0
+  .avatar-skull
+    border-radius: none
     transition: opacity 1s
+
+  .avatar, .avatar-skull
+    opacity: 0
+    transition: opacity 0.5s
     &.visible
       opacity: 1
 

@@ -1,71 +1,81 @@
-.left.col-md-4
+.unlogged
   = render partial: "shared/logo"
-  .share.block.logged
-    %h4 Share
-    %p
-      = link_to root_url, class: 'fb-share' do
-        %span.ion.ion-social-facebook
-        Share on Facebook
-      / %iframe.fb-share{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
-    %p
-      Or you can use this link :
-      %br
-      = link_to root_url, root_url, id: "myLink"
+  .explain
+    Don't mess with your last appearance on Earth, let anyone know which songs you want to be played during your funerals.
+
+  = link_to '#', class: 'fb-login', id: 'login' do
+    %span.ion.ion-social-facebook
+    Login with Facebook
+
+  .why
+    Why do you need my facebook ?
+    .reason
+      Worry not, we only use your Facebook account to save your playlist, so that it won't be lost when you come back. And we only access your publicly available informations.
+  / %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
+  / %p (if no Facebook LOGIN button shows up above, you may want to turn your Adblocker off)
+  = render partial: "shared/top", locals: {limit: 4}
+
+.logged
+  .left.col-md-4
+    = render partial: "shared/logo"
+    .share.block
+      %h4 Share
+      %p
+        = link_to root_url, class: 'fb-share' do
+          %span.ion.ion-social-facebook
+          Share on Facebook
+        / %iframe.fb-share{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
+      %p
+        Or you can use this link :
+        %br
+        = link_to root_url, root_url, id: "myLink"
 
 
-  = render partial: "shared/top"
+    = render partial: "shared/top"
 
 
-.right.col-md-8
-  %h2.logged
-    %span.user-first-name
-    %span.user-last-name
-  #new_song.logged
-    %form
-      .row
-        .col-md-12
-          .input-group
-            .input-group-addon
-              .ion.ion-search
-            %input.form-control{type: :text, value: '', placeholder: "Search and add songs"}
-            / .input-group-addon
-            /   %input{type: :submit, id: 'new_song_bt', value: 'Search'}
-
-      %ul.results
-        %li.no-results
-          .col-md-12 No results for your search
-        %li.template.result
+  .right.col-md-8
+    %h2
+      %span.user-first-name
+      %span.user-last-name
+    #new_song
+      %form
+        .row
           .col-md-12
-            %input.song-id{type: :hidden, data: {attr: 'id'}}
-            .name{data: {attr: 'name'}}
-            .artists{data: {attr: 'artists', loop: true}}
-              .artist.row
-                .col-xs-1.ion-person
-                .col-xs-10{data: {attr: 'name'}}
-            .album.row
-              .col-xs-1.ion-disc
-              .col-xs-10{data: {attr: 'album.name'}}
-            = link_to "Add", [:songs], class: 'add-song btn btn-success ion-plus ion-bt'
+            .input-group
+              .input-group-addon
+                .ion.ion-search
+              %input.form-control{type: :text, value: '', placeholder: "Search and add songs"}
+              / .input-group-addon
+              /   %input{type: :submit, id: 'new_song_bt', value: 'Search'}
 
-  .unlogged
-    .explain
-      Don't mess with your last appearance on Earth, let anyone know which songs you want to be played during your funerals.
-    %h3 To get started, please first login:
-    %fb:login-button{id: "login", scope: "public_profile,email", onlogin: "checkLoginState();", size: "xlarge"}
-    %p (if no Facebook LOGIN button shows up above, you may want to turn your Adblocker off)
+        %ul.results
+          %li.no-results
+            .col-md-12 No results for your search
+          %li.template.result
+            .col-md-12
+              %input.song-id{type: :hidden, data: {attr: 'id'}}
+              .name{data: {attr: 'name'}}
+              .artists{data: {attr: 'artists', loop: true}}
+                .artist.row
+                  .col-xs-1.ion-person
+                  .col-xs-10{data: {attr: 'name'}}
+              .album.row
+                .col-xs-1.ion-disc
+                .col-xs-10{data: {attr: 'album.name'}}
+              = link_to "Add", [:songs], class: 'add-song btn btn-success ion-plus ion-bt'
 
-  .logged
-    #songs.edit
-      %h4 playlist
-      %ol.songs
-        %li.template.song
-          = render partial: 'shared/song_details'
-          .actions
-            = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
-        %li.song.no-songs
-          There is no song in your playlist yet. You may want to use the
-          %a
-            "Add more song" feature.
+      #songs.edit
+        %h4 playlist
+        %ol.songs
+          %li.template.song
+            = render partial: 'shared/song_details'
+            .actions
+              = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
+          %li.song.no-songs
+            There is no song in your playlist yet. You may want to use the
+            %a
+              "Add more song" feature.
 
 
 
@@ -80,3 +90,5 @@
       setTimeout ->
         $('#new_song').removeClass 'highlight'
       , 1000
+
+

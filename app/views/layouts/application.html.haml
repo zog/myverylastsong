@@ -62,9 +62,11 @@
           = yield
 
     %footer
-      .copy.pull-right
+      .copy
         made by
-        = link_to "@zog_zog", "http://twitter.com/zog_zog", target: :blank
+        = link_to "zog", "http://twitter.com/zog_zog", target: :blank
+        &
+        = link_to "luc", "http://twitter.com/lucchaissac", target: :blank
 
     = javascript_include_tag "application"
     = yield :scripts
