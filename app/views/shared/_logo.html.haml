@@ -5,7 +5,7 @@
   .dot.sw
   .disk-container
     = image_tag "disk-bg.svg", class: 'disk'
-    = image_tag @user.try(:avatar_url), class: "avatar #{@user.present? && 'visible'}")
+    = image_tag @user.try(:avatar_url), class: "avatar #{@user.present? && 'visible'}"
     = image_tag "avatar-mask.png", class: 'avatar-mask'
     .center
     = image_tag "skull.svg", class: 'skull'
