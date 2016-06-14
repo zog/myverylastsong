@@ -14,25 +14,22 @@
  *= require_self
  */
 
-@import url(https://fonts.googleapis.com/css?family=Antic+Didone)
-
-$color-red: #B11D2A
-$bg-color: black
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700)
+@import variables
+@import logo
 
 html
   height: 100%
 
 body
-  font-family: 'Antic Didone', serif
+  font-family: 'Nunito', sans-serif
   background-color: $bg-color
-  background-image: url(/assets/bg.jpg)
-  background-position: 100% 0%
-  background-size: cover
   min-height: 100%
   background-attachment: fixed
+  font-weight: lighter
 
 .scroll-wrapper
-  max-width: 1240px
+  max-width: 900px
   margin: auto
   padding-bottom: 80px
   padding-left: 20px
@@ -42,28 +39,35 @@ body
   margin: 0
 
 #header
-  text-align: left
-  font-size: 1.2em
+  text-align: center
+  font-size: 1em
   color: white
   margin-bottom: 40px
+  position: relative
+  border-bottom: 1px solid $light-grey
+  padding-bottom: 20px
+  font-weight: lighter
+
   a
     color: white
     text-decoration: none
   h1
-    font-weight: bold
-    position: relative
-    float: left
-    &:after
-      content: ""
-      border-bottom: 1px solid white
-      position: absolute
-      left: 0
-      right: 0
-      bottom: -10px
+    font-weight: lighter
+    letter-spacing: 3px
+    color: $light-grey
+    text-transform: uppercase
+    font-size: 1em
 
-  .baseline
-    clear: both
-    padding-top: 20px
+  .credits
+    position: absolute
+    left: 0
+    top: 0
+    color: black
+
+h2
+  font-weight: lighter
+  margin-top: 0
+  margin-bottom: 20px
 
 .unlogged
   margin-top: 20px
@@ -77,8 +81,6 @@ body
 
 .ion-bt:before
   margin-right: 10px
-
-
 
 ul
   padding: 0
@@ -113,6 +115,8 @@ li
     position: relative
     z-index: 10
     padding-right: 70px
+    .name
+      font-weight: bold
     .btn
       position: absolute
       right: -60px
@@ -132,43 +136,106 @@ li
 
 
 .result, .song
-  .name
-    font-size: 1.2em
-    font-weight: bold
-
   .fetch-itunes-link
     display: none
 
+
+.song
+  height: 40px
+  clear: both
+  margin-bottom: 10px
+  position: relative
+  font-size: 13px
+  font-weight: normal
+  .cover
+    width: 40px
+    float: left
+    margin-right: 10px
+    position: absolute
+    left: 0
+    top: 0
+    img
+      width: 100%
+  .details
+    margin-left: 50px
+    color: $grey
+  .name
+    color: black
+  .album
+    font-weight: lighter
+  .name, .album
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+
 .block
   background: rgba(255,255,255,0.8)
-  padding: 15px
-  margin-top: 15px
+
+  margin-top: 25px
   transition: background-color 1s
+  color: $grey
   .btn
     width: 100%
   &.highlight
     background-color: #B14D54
-  h4
-    display: block
-    position: relative
-    margin-bottom: 20px
-    text-transform: uppercase
-    font-weight: bold
-    margin-top: 0
-    &:after
-      content: ""
-      border-bottom: 1px solid black
-      position: absolute
-      left: 0
-      right: 0
-      bottom: -10px
+
+h4
+  display: block
+  position: relative
+  margin-bottom: 10px
+  text-transform: uppercase
+  margin-top: 0
+  color: black
+  font-weight: normal
+  letter-spacing: 3px
+  font-size: 12px
 
 .share
-  .fb-share
-    margin-bottom: -5px
-    transform: scale(1.4)
-    transform-origin: 0 50%
+  #myLink
+    background-color: $light-grey
+    color: $grey
+    padding: 13px 20px
+    white-space: nowrap
+    text-overflow: ellipsis
+    border-radius: 3px
+    display: block
+    overflow: hidden
+    text-decoration: none
     margin-top: 10px
+    height: 48px
+    font-size: 16px
+    &:hover
+      background-color: darken($light-grey, 10%)
+  .fb-share
+    background-color: $fb-blue
+    padding: 13px 20px 12px 45px
+    color: white
+    width: 100%
+    display: block
+    border-radius: 3px
+    font-size: 16px
+    text-decoration: none
+    position: relative
+    height: 48px
+    &:hover
+      background-color: darken($fb-blue, 10%)
+    .ion
+      color: $fb-blue
+      display: inline-block
+      position: absolute
+      z-index: 10
+      top: 18px
+      left: 22px
+      &:after
+        z-index: -1
+        content: ""
+        background: white
+        width: 17px
+        height: 16px
+        left: -5px
+        bottom: 3px
+        position: absolute
 .right
   h3
     color: white
@@ -177,23 +244,54 @@ li
 #songs
   margin-top: 15px
   overflow: hidden
-  background-color: rgba(0,0,0,0.6)
+  counter-reset: songs
+  ol
+    padding-left: 40px
   &.edit
     .song
       cursor: ns-resize
   .song
-    color: white
-    padding: 20px
+    list-style-type: none
+    color: black
     overflow: hidden
-    margin-top: 1px
+    margin: 0
+    height: 80px
 
-    transition: transform 1s
+    transition: transform 1s, background-color 0.2s
     transform: translateY(0%)
     z-index: 10
     position: relative
-    border-top: 1px solid white
-    &:nth-child(2)
-      border: none
+    border-bottom: 1px solid $light-grey
+    padding-bottom: 20px
+    padding-top: 20px
+    overflow: visible
+
+    .cover
+      top: 20px
+
+    &:hover
+      background-color: lighten($light-grey, 5%)
+      &:not(.template):not(.no-songs):before
+        background-color: lighten($light-grey, 5%)
+
+    &:not(.template):not(.no-songs):before
+      transition: background-color 0.2s
+      counter-increment: songs
+      content: counter(songs)
+      position: absolute
+      color: black
+      left: -40px
+      font-size: 16px
+      text-align: center
+      width: 40px
+      height: 100%
+      top: 0
+      padding-top: 22px
+
+    .actions
+      position: absolute
+      right: 10px
+      top: 22px
 
     &.no-songs
       cursor: initial
@@ -201,10 +299,6 @@ li
         cursor: pointer
     img
       width: 100%
-    .name
-      font-size: 2em
-      margin-bottom: 20px
-      line-height: 1.1em
     .badges
       background: white
       padding: 3px
@@ -236,15 +330,28 @@ li
         opacity: 1
 
   .ui-state-highlight
-    margin-top: 1px
-    height: 160px
+    height: 80px
     border: 1px dashed #ccc
-    background-color: rgba(255,255,255,0.3)
+    background-color: $light-grey
 
 #new_song
+  margin-bottom: 20px
+  form .input-group
+    border: 2px solid black
+
   input[type=text]
     height: 48px
-    outline: none
+    outline: none !important
+    border: none !important
+    box-shadow: none !important
+  .input-group-addon
+    background-color: transparent
+    border: none
+    color: $grey
+    padding: 0 20px
+    .ion
+      font-size: 2em
+      color: $grey
   .input-group-addon input
     border: none
     background: none
@@ -253,13 +360,6 @@ li
   p
     font-weight: bold
     text-transform: uppercase
-
-.top .song
-  .badges
-    margin-bottom: 10px
-    overflow: hidden
-    img
-      height: 20px
 
 footer
   padding: 10px 20px
@@ -273,6 +373,7 @@ footer
   bottom: 0
   left: 0
   right: 0
+  z-index: 15
 
 .only-desktop
   display: block

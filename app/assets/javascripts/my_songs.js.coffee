@@ -1,5 +1,6 @@
 window.MySongs = class
-  constructor: (container, @userID)->
+  constructor: (container, @userData)->
+    @userID = @userData.userId
     @container = $(container)
     @loaded = false
     @loadSongs()
@@ -7,9 +8,11 @@ window.MySongs = class
     @newSongInput = @newSong.find("input[type=text]")
     $('#myLink').show().attr('href', $('#myLink').attr('href') + @userID)
     $('#myLink').html $('#myLink').attr('href')
-    $('.share iframe').attr 'src', $('.share iframe').attr('src') + @userID
+    $('.fb-share').attr 'src', $('.fb-share').attr('src') + @userID
     $('.logged').show()
     $('.unlogged').hide()
+    $('.user-first-name').html @userData.firstName
+    $('.user-last-name').html @userData.lastName
     @newSong.submit (e)=>
       val = @newSongInput.val()
       $.ajax
@@ -17,6 +20,13 @@ window.MySongs = class
         success: (data)=>
           @displayResults data
       e.preventDefault()
+
+  setAvatar: (url)->
+    $('.logo .avatar').attr 'src', url
+    setTimeout =>
+      $('.logo .avatar').addClass 'visible'
+      @spinDisk()
+    , 10
 
   displayResults: (data)->
     @resultsContainer ?= @container.find('.results')
@@ -65,6 +75,8 @@ window.MySongs = class
     if @loaded
       out.addClass 'hidden'
       out.addClass 'behind'
+      @spinDisk()
+
     @applyData data, out
     out.appendTo @songsContainer
     out.data 'data', data
@@ -72,7 +84,7 @@ window.MySongs = class
       @removeSong $(e.target).parents('.song')
       e.preventDefault()
       false
-    $("ul.songs").sortable
+    $("ol.songs").sortable
       placeholder: "ui-state-highlight"
       stop: =>
         @saveSequence()
@@ -85,6 +97,18 @@ window.MySongs = class
     if @loaded
       @saveSequence()
 
+  spinDisk: ->
+    $(".logo .disk-container").addClass "spinning"
+    setTimeout ->
+      $(".logo .disk-container").removeClass "spinning"
+    , 500
+
+  scratchDisk: ->
+    $(".logo .disk-container").addClass "scratch"
+    setTimeout ->
+      $(".logo .disk-container").removeClass "scratch"
+    , 500
+
   songItems: ->
     @songsContainer.find('.song:not(.template):not(.no-songs)')
 
@@ -95,6 +119,7 @@ window.MySongs = class
       url: "/songs/#{data.id}"
       success: =>
         tgt.remove()
+        @scratchDisk()
         if @songItems().length == 0
           @noSong.show()
 

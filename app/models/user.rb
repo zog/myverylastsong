@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   before_save do
     unless read_attribute :uuid
-      write_attribute :uuid, UUIDTools::UUID.timestamp_create.to_s
+      write_attribute :uuid, SecureRandom.hex(6)
     end
   end
 

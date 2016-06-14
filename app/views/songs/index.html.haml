@@ -1,14 +1,35 @@
 .left.col-md-4
+  = render partial: "shared/logo"
+  .share.block.logged
+    %h4 Share
+    %p
+      = link_to root_url, class: 'fb-share' do
+        %span.ion.ion-social-facebook
+        Share on Facebook
+      / %iframe.fb-share{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
+    %p
+      Or you can use this link :
+      %br
+      = link_to root_url, root_url, id: "myLink"
 
-  .block#new_song.logged
-    %h4.ion-plus.ion-bt Add more songs
+
+  = render partial: "shared/top"
+
+
+.right.col-md-8
+  %h2.logged
+    %span.user-first-name
+    %span.user-last-name
+  #new_song.logged
     %form
       .row
         .col-md-12
           .input-group
-            %input.form-control{type: :text, value: ''}
             .input-group-addon
-              %input{type: :submit, id: 'new_song_bt', value: 'Search'}
+              .ion.ion-search
+            %input.form-control{type: :text, value: '', placeholder: "Search and add songs"}
+            / .input-group-addon
+            /   %input{type: :submit, id: 'new_song_bt', value: 'Search'}
 
       %ul.results
         %li.no-results
@@ -26,21 +47,6 @@
               .col-xs-10{data: {attr: 'album.name'}}
             = link_to "Add", [:songs], class: 'add-song btn btn-success ion-plus ion-bt'
 
-  .share.block.logged
-    %h4.ion-share.ion-bt Share
-    %p
-      Share your very last playlist on Facebook:
-      %iframe.fb-share{src: "https://www.facebook.com/plugins/share_button.php?mobile_iframe=true&layout=button&appId=#{Rails.env.development? ? '1576628125970347' : '1576626152637211'}&width=0&height=0&href=#{root_url}", width:"100", height:"21", style: "border:none;overflow:hidden", scrolling:"no", frameborder:"0", allowTransparency:"true"}
-    %p
-      Or use this link :
-      %br
-      = link_to root_url, root_url, id: "myLink"
-
-
-  = render partial: "shared/top"
-
-
-.right.col-md-8
   .unlogged
     .explain
       Don't mess with your last appearance on Earth, let anyone know which songs you want to be played during your funerals.
@@ -50,10 +56,11 @@
 
   .logged
     #songs.edit
-      %ul.songs
+      %h4 playlist
+      %ol.songs
         %li.template.song
           = render partial: 'shared/song_details'
-          .col-md-1
+          .actions
             = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
         %li.song.no-songs
           There is no song in your playlist yet. You may want to use the

@@ -3,12 +3,14 @@
   %ul.songs
     - Song.top.each do |song|
       %li.song
-        .player
-          %iframe{src:"https://embed.spotify.com/?uri=spotify:track:#{song.spotify_id}", width: "100%", height: "80", frameborder:"0", allowtransparency: "true"}
-        .badges
-          - if song.valid_itunes_link?
-            = link_to song.itunes_link, class: 'pull-right', target: :blank do
-              = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
-          - elsif song.itunes_link.nil?
-            = link_to '#', target: :blank, class: 'pull-right fetch-itunes-link', data: {id: song.spotify_id} do
-              = image_tag "http://images.apple.com/euro/itunes/link/b/generic/images/link-badge-itunes_2x.png"
+        .cover
+          = image_tag song.album["images"]["0"]["url"] rescue nil
+        .details
+          .name
+            = song.artist_name
+            —
+            = song.name
+          .album
+            = song.album["name"]
+
+

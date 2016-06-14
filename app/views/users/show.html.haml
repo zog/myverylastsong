@@ -1,15 +1,19 @@
 .left.col-md-4
-  .disclaimer.block
-    I am&nbsp;
-    %span.name<>= @user.name
-    , and those are the songs I wish to be played during my funerals
+  = render partial: "shared/logo"
+  / .disclaimer.block
+  /   I am&nbsp;
+  /   %span.name<>= @user.name
+  /   , and those are the songs I wish to be played during my funerals
 
-  .only-desktop.share.block
-    = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
+  / .only-desktop.share.block
+  /   = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
 
   .only-desktop= render partial: "shared/top"
 
 .right.col-md-8
+  %h2
+    = @user.first_name
+    = @user.last_name
   #songs
     %ul.songs
       %li.template

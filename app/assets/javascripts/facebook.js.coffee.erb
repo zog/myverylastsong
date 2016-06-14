@@ -32,13 +32,25 @@ window.checkLoginState = ->
 # successful.  See statusChangeCallback() for when this call is made.
 
 window.connected = ->
+
+
   FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
+    id = response.id
     $.ajax
       method: "post"
       url: "/users"
       data: response
       success: (data)->
-        new MySongs("#content", data.userId)
+        my_songs = new MySongs("#content", data)
+        FB.api '/me/picture',  {height: '500'}, (response) ->
+
+          my_songs.setAvatar response.data.url
+          $.ajax
+            method: "post"
+            url: "/users"
+            data:
+              id: id
+              avatar_url: response.data.url
 
 window.fbAsyncInit = ->
   FB.init
