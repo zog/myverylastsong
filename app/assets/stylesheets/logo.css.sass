@@ -1,0 +1,115 @@
+@import variables
+
+@keyframes spinDisk
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
+
+@keyframes scratchDisk
+  0%
+    transform: rotate(0deg)
+
+  15%
+    transform: rotate(-20deg)
+
+  30%
+    transform: rotate(20deg)
+
+  50%
+    transform: rotate(-10deg)
+
+  75%
+    transform: rotate(10deg)
+
+  100%
+    transform: rotate(0deg)
+
+.logo
+  background: $lighter-grey
+  border: 1px solid $light-grey
+  $padding: 20px
+  padding: $padding
+  position: relative
+  .disk
+    width: 100%
+
+  .disk-container
+    display: block
+    margin: auto
+    position: relative
+    &.spinning
+      animation-name: spinDisk
+      animation-duration: 0.5s
+    &.scratch
+      animation-name: scratchDisk
+      animation-duration: 0.5s
+
+  .avatar, .avatar-mask
+    border-radius: 300px
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 60%
+    height: 60%
+    margin-top: -30%
+    margin-left: -30%
+
+  .avatar
+    opacity: 0
+    transition: opacity 1s
+    &.visible
+      opacity: 1
+
+  .avatar-mask
+    opacity: 0.5
+
+  .skull
+    position: absolute
+    top: 30%
+    left: 50%
+    width: 20px
+    margin-left: -10px
+
+  .label, .name
+    position: absolute
+    top: 58%
+    left: 0
+    width: 100%
+    text-align: center
+    color: white
+    font-size: 10px
+    font-weight: lighter
+    text-transform: uppercase
+  .name
+    top: 64%
+  .center
+    position: absolute
+    top: 50%
+    left: 50%
+    background: black
+    width: 10px
+    height: 10px
+    margin-top: -5px
+    margin-left: -5px
+    border-radius: 10px
+
+  .dot
+    position: absolute
+    background-color: $light-grey
+    width: 5px
+    height: 5px
+    border-radius: 5px
+    &.nw
+      left: $padding
+      top: $padding
+    &.ne
+      top: $padding
+      right: $padding
+    &.sw
+      left: $padding
+      bottom: $padding
+    &.se
+      right: $padding
+      bottom: $padding
