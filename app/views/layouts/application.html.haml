@@ -59,7 +59,9 @@
             %h1 My Very Last Song
 
         #content.row
-          = yield
+          .loading
+            .col-md-12= render partial: "shared/logo"
+          .loaded= yield
 
     %footer
       .copy

@@ -40,6 +40,15 @@ body
 .inner-scroll-wrapper
   margin: 0
 
+.loaded
+  display: none
+
+.loading
+  opacity: 1
+  transition: opacity 0.5s
+  &.fade
+    opacity: 0
+
 #header
   text-align: center
   font-size: 1em
@@ -151,6 +160,7 @@ li
       width: 100%
   .details
     margin-left: 50px
+    margin-right: 70px
     color: $grey
   .name
     color: black
@@ -354,6 +364,7 @@ h4
     background: none
     outline: none
     box-shadow: none
+    margin-top: 4px
   p
     font-weight: bold
     text-transform: uppercase
@@ -385,15 +396,17 @@ footer
 .only-mobile
   display: none
 
-@media (max-width: 980px)
-  #header
+@media (max-width: 500px)
+  h2
+    margin-top: 40px
+  h4
     text-align: center
-    h1
-      float: none
   .only-desktop
     display: none
   .only-mobile
     display: block
+    &.input-group-addon
+      display: table-cell
   #songs .song
     position: relative
     img
