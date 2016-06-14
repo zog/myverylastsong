@@ -91,4 +91,23 @@
         $('#new_song').removeClass 'highlight'
       , 1000
 
+    window.playDisk = false
+
+    stopDisk = ->
+      if window.playDisk
+        setTimeout ->
+          stopDisk()
+        , 2000
+      else
+        $('.unlogged .logo').removeClass 'play'
+
+    $('.unlogged .logo:not(.play)').mouseleave ->
+      window.playDisk = false
+    $('.unlogged .logo:not(.play)').mouseenter ->
+      window.playDisk = true
+      $('.unlogged .logo').addClass 'play'
+      setTimeout ->
+        stopDisk()
+
+      , 2000
 

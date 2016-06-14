@@ -2,9 +2,10 @@
 
 @keyframes shake
   0%, 100%
+    transform: rotate(deg)
+  25%
     transform: rotate(-2deg)
-
-  50%
+  75%
     transform: rotate(2deg)
 
 .unlogged
@@ -17,16 +18,23 @@
     border: none
     .dot
       display: none
-    // .disk-container
-    //   .disk
-    //     animation-duration: 2s
-    //     animation-iteration-count: infinite
-    //     animation-name: shake
-    //   .avatar-skull
-    //     animation-name: spinDisk
-    //     animation-duration: 3s
-    //     animation-iteration-count: infinite
-    //     animation-timing-function: linear
+    .disk-container
+      .disk, .avatar-skull
+        transition: transform 0.2s
+        transform: rotate(0deg)
+    &.play
+      .disk-container
+        .disk
+          animation-duration: 2s
+          animation-iteration-count: infinite
+          animation-name: shake
+          animation-fill-mode: forwards
+        .avatar-skull
+          animation-name: spinDisk
+          animation-duration: 2s
+          animation-iteration-count: infinite
+          animation-timing-function: linear
+          animation-fill-mode: forwards
   .explain
     font-size: 2em
     color: black
