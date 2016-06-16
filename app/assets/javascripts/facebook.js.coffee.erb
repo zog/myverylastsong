@@ -31,7 +31,6 @@ window.statusChangeCallback = (response) ->
 window.connected = ->
   FB.api '/me',  {fields: 'first_name, last_name, gender, bio'}, (response) ->
     id = response.id
-    console.log response
     $.ajax
       method: "post"
       url: "/users"
@@ -49,7 +48,6 @@ window.connected = ->
               avatar_url: response.data.url
 
 window.fbAsyncInit = ->
-  console.log "HERE"
   FB.init
     appId: <%= Rails.env.development? ? '1576628125970347' : '1576626152637211' %>
     cookie: true

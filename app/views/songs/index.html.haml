@@ -68,15 +68,10 @@
 
 - content_for :early_scripts do
   = javascript_include_tag :facebook
-  :coffeescript
-    console.log "MIAOU"
-
 
 - content_for :scripts do
   :coffeescript
-    console.log window.fbAsyncInit
     ((d, s, id) ->
-      console.log "THERE"
       js = undefined
       fjs = d.getElementsByTagName(s)[0]
       if d.getElementById(id)
