@@ -49,6 +49,7 @@ window.connected = ->
               avatar_url: response.data.url
 
 window.fbAsyncInit = ->
+  console.log "HERE"
   FB.init
     appId: <%= Rails.env.development? ? '1576628125970347' : '1576626152637211' %>
     cookie: true
@@ -70,15 +71,3 @@ window.fbAsyncInit = ->
     return
   return
 
-# Load the SDK asynchronously
-((d, s, id) ->
-  js = undefined
-  fjs = d.getElementsByTagName(s)[0]
-  if d.getElementById(id)
-    return
-  js = d.createElement(s)
-  js.id = id
-  js.src = '//connect.facebook.net/en_US/sdk.js'
-  fjs.parentNode.insertBefore js, fjs
-  return
-) document, 'script', 'facebook-jssdk'

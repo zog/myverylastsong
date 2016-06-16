@@ -1,0 +1,74 @@
+@import variables
+
+.top
+  h4.expanded
+    display: none
+    text-align: center
+    margin-bottom: 30px
+
+.top.expanded
+  border-bottom: 2px solid black
+  margin-top: 100px
+  h4
+    display: none
+    &.expanded
+      display: block
+  .songs
+    overflow: hidden
+    padding-left: 10%
+    padding-right: 10%
+    margin-bottom: 0
+  .song
+    float: left
+    width: 25%
+    height: 120px
+    clear: none
+    margin-bottom: 6px
+    span
+      display: block
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+    .dash
+      display: none
+    .song-name
+      font-size: 12px
+    &:after
+      position: absolute
+      border: 2px solid black
+      content: ""
+      left: 10%
+      right: 10%
+      height: 10px
+      bottom: -8px
+      border-top-left-radius: 5px
+      border-top-right-radius: 5px
+    &:hover .details
+      transform: translateX(-50%) translateY(0%)
+  .details
+    position: absolute
+    left: 50%
+    top: 0
+    bottom: 0
+    width: 120px
+    background: rgba(0,0,0,0.6)
+    padding: 40px 5px
+    transform: translateX(-50%) translateY(-100%)
+    transition: transform 0.3s
+    text-align: left
+    font-size: 10px
+    margin: 0
+    .name
+      color: $light-grey
+  .cover
+    position: relative
+    height: 100%
+    width: auto
+    text-align: center
+    margin-left: 50%
+    transform: translateX(-50%)
+    img
+      height: 100%
+      width: auto
+      display: inline-block
+      border: 2px solid black

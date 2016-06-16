@@ -11,7 +11,7 @@
     Why do you need my facebook ?
     .reason
       Worry not, we only use your Facebook account to save your playlist, so that it won't be lost when you come back. And we only access your publicly available informations.
-  = render partial: "shared/top", locals: {limit: 4}
+  = render partial: "shared/top", locals: {limit: 4, expanded: true}
 
 .logged
   .left.col-sm-4
@@ -66,14 +66,28 @@
     .only-mobile= render partial: "shared/share"
     .only-mobile= render partial: "shared/top"
 
-
-
-
 - content_for :early_scripts do
   = javascript_include_tag :facebook
+  :coffeescript
+    console.log "MIAOU"
+
 
 - content_for :scripts do
   :coffeescript
+    console.log window.fbAsyncInit
+    ((d, s, id) ->
+      console.log "THERE"
+      js = undefined
+      fjs = d.getElementsByTagName(s)[0]
+      if d.getElementById(id)
+        return
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'http://connect.facebook.net/en_US/sdk.js'
+      fjs.parentNode.insertBefore js, fjs
+      return
+    ) document, 'script', 'facebook-jssdk'
+
     $(".no-songs a").click (e)->
       e.preventDefault()
       $('#new_song').addClass 'highlight'

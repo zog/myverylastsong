@@ -16,9 +16,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700)
 @import variables
-@import logo
-@import unlogged
-@import users_show
+
 
 html
   height: 100%
@@ -34,6 +32,7 @@ body
   position: relative
 
 .scroll-wrapper
+  overflow: hidden
   padding-bottom: 71px
   padding-left: 15px
   padding-right: 15px
@@ -374,7 +373,8 @@ h4
     text-transform: uppercase
 
 footer
-  padding: 10px 20px
+  padding: 10px 0
+  margin: 0 15px
   color: $light-grey
   a
     color: $light-grey
