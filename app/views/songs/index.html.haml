@@ -1,16 +1,16 @@
 .unlogged
   = render partial: "shared/logo"
   .explain
-    Don't mess with your last appearance on Earth, let anyone know which songs you want to be played during your funerals.
+    Don’t mess with your last moments on Earth, let someone know the songs you want played at your funeral.
 
   = link_to '#', class: 'fb-login', id: 'login' do
     %span.ion.ion-social-facebook
     Login with Facebook
 
   .why
-    Why do you need my facebook ?
+    Why do you need my Facebook?
     .reason
-      Worry not, we only use your Facebook account to save your playlist, so that it won't be lost when you come back. And we only access your publicly available informations.
+      Worry not, we only use your Facebook account to save your playlist, so that it won't be lost when you come back. And we only access your publicly available information.
   = render partial: "shared/top", locals: {limit: 4, expanded: true}
 
 .logged
