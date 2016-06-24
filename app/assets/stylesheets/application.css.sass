@@ -48,7 +48,7 @@ body
 
 #content
   position: relative
-  min-height: 500px
+  min-height: 550px
 .loading
   opacity: 1
   transition: opacity 0.5s
@@ -410,6 +410,17 @@ footer
   display: none
 
 @media (max-width: 500px)
+  #content
+    min-height: 350px
+
+  #header
+    .credits
+      margin-top: 10px
+      span
+        display: block
+        font-size: 9px
+        &.dash
+          display: none
   h2
     margin-top: 40px
   h4
