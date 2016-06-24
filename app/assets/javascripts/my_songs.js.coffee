@@ -6,8 +6,8 @@ window.MySongs = class
     @loadSongs()
     @newSong = @container.find("#new_song form")
     @newSongInput = @newSong.find("input[type=text]")
-    $('.my-link').show().attr('href', $('#myLink').attr('href') + @userID)
-    $('.my-link').html $('#myLink').attr('href')
+    $('.my-link').show().attr('href', $('.my-link').attr('href') + @userID)
+    $('.my-link').html $('.my-link').attr('href')
     $('.fb-share').attr 'src', $('.fb-share').attr('src') + @userID
     $('.logged').show()
     $('.unlogged').hide()
