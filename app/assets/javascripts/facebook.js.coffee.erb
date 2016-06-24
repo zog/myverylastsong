@@ -5,8 +5,11 @@ window.statusChangeCallback = (response) ->
   # for FB.getLoginStatus().
   $(".loading").addClass 'fade'
   setTimeout ->
-    $(".loading").hide()
+
     $(".loaded").show()
+    setTimeout ->
+      $(".loading").hide()
+    , 200
   , 500
 
   if response.status == 'connected'

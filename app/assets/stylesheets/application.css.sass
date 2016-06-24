@@ -46,9 +46,17 @@ body
   .loading
     display: block
 
+#content
+  position: relative
+  min-height: 500px
 .loading
   opacity: 1
   transition: opacity 0.5s
+  position: absolute
+  background: white
+  top: 0
+  left: 0
+  width: 100%
   &.fade
     opacity: 0
 
