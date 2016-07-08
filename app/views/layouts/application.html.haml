@@ -19,7 +19,11 @@
     - if @user
       %meta{property: "og:title", content: "MyVeryLastSong - #{@user.try(:name)}"}
       %meta{property: "og:description", content: "#{@user.first_name} shared his very last playlist, the one he wants you to play during #{@user.pronoun} funerals"}
-    %meta{property: "og:image", content: image_url("candle.jpg")}
+    - else
+      %meta{property: "og:title", content: "MyVeryLastSong"}
+      %meta{property: "og:description", content: "Don’t mess with your last moments on Earth, let someone know the songs you want played at your funeral."}
+
+    %meta{property: "og:image", content: image_url("skull.png")}
     %meta{property: "fb:app_id", content: (Rails.env.development? ? '1576628125970347' : '1576626152637211')}
 
     = favicon_link_tag 'favicon.ico'
