@@ -16,11 +16,10 @@ window.statusChangeCallback = (response) ->
     # Logged into your app and Facebook.
     $("#login").hide()
     connected()
-  else if response.status == 'not_authorized'
+  else
     $("#login").show()
     # The person is logged into Facebook, but not your app.
     # document.getElementById('status').innerHTML = 'Please log ' + 'into this app.'
-  else
     $("#login").click (e)->
       e.preventDefault()
       FB.login (response) ->
