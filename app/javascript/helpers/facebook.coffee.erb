@@ -39,14 +39,14 @@ window.connected = ->
       data: response
       success: (data)->
         my_songs = new MySongs("#content", data)
-        FB.api '/me/?fields=picture',  {height: '500'}, (response) ->
-          my_songs.setAvatar response.picture.data.url
+        FB.api '/me/picture?redirect=0&type=large', (response) ->
+          my_songs.setAvatar response.data.url
           $.ajax
             method: "post"
             url: "/users"
             data:
               id: id
-              avatar_url: response.picture.data.url
+              avatar_url: response.data.url
 
 window.fbAsyncInit = ->
   FB.init
