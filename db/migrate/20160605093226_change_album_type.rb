@@ -1,4 +1,4 @@
-class ChangeAlbumType < ActiveRecord::Migration
+class ChangeAlbumType < ActiveRecord::Migration[4.2]
   def change
 
     rename_column :songs, :album, :album_old

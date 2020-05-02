@@ -7,7 +7,7 @@
   .dot.sw
   .disk-container
     = image_tag "disk-bg.svg", class: 'disk'
-    = image_tag @user.try(:avatar_url), class: "avatar #{@user.present? && 'visible'}"
+    %img{src: @user.try(:avatar_url), class: "avatar #{@user.present? && 'visible'}"}
     = image_tag "avatar-mask.png", class: 'avatar-mask'
     = image_tag "skull.svg", class: 'skull'
     .label MVLS – MMXVI

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def show
     @user = User.where(uuid: params[:user_id]).last
     @user ||= User.where(fb_id: params[:user_id]).last

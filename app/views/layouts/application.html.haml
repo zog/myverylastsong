@@ -6,7 +6,7 @@
     %meta{name: "apple-mobile-web-app-capable", content: "yes"}/
 
     %title My Very Last Song
-    // %meta{name: "description", content: "#{description}"}/
+    =# %meta{name: "description", content: "#{description}"}/
     = yield :meta
 
     %link{href: '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', media: 'screen', rel: 'stylesheet'}
@@ -76,5 +76,7 @@
         &
         = link_to "luc", "http://twitter.com/lucchaissac", target: :blank
 
-    = javascript_include_tag "application"
+    = javascript_pack_tag "application"
+    %script{async: true, defer: true, src: "https://connect.facebook.net/en_US/sdk.js"}
+
     = yield :scripts

@@ -59,54 +59,13 @@
             .actions
               = link_to 'delete', '#', class: 'ion-close-circled delete pull-right'
           %li.song.no-songs
-            There is no song in your playlist yet. You may want to use the
+            There is no song in your playlist yet. You may want to
             %a
-              "Add more song" feature.
+              Add more songs.
 
     .only-mobile= render partial: "shared/share"
     .only-mobile= render partial: "shared/top"
 
 - content_for :early_scripts do
-  = javascript_include_tag :facebook
-
-- content_for :scripts do
-  :coffeescript
-    ((d, s, id) ->
-      js = undefined
-      fjs = d.getElementsByTagName(s)[0]
-      if d.getElementById(id)
-        return
-      js = d.createElement(s)
-      js.id = id
-      js.src = 'http://connect.facebook.net/en_US/sdk.js'
-      fjs.parentNode.insertBefore js, fjs
-      return
-    ) document, 'script', 'facebook-jssdk'
-
-    $(".no-songs a").click (e)->
-      e.preventDefault()
-      $('#new_song').addClass 'highlight'
-      setTimeout ->
-        $('#new_song').removeClass 'highlight'
-      , 1000
-
-    window.playDisk = false
-
-    stopDisk = ->
-      if window.playDisk
-        setTimeout ->
-          stopDisk()
-        , 2000
-      else
-        $('.unlogged .logo').removeClass 'play'
-
-    $('.unlogged .logo:not(.play)').mouseleave ->
-      window.playDisk = false
-    $('.unlogged .logo:not(.play)').mouseenter ->
-      window.playDisk = true
-      $('.unlogged .logo').addClass 'play'
-      setTimeout ->
-        stopDisk()
-
-      , 2000
+  = javascript_pack_tag :songs
 
