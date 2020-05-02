@@ -1,4 +1,5 @@
 require('jquery')
+require('jquery-ui')
 
 window.MySongs = class
   constructor: (container, @userData)->
@@ -153,6 +154,7 @@ window.MySongs = class
         @loaded = true
 
   addSong: (data)->
+    console.log(data)
     data["userID"] = @userID
     $.ajax
       method: 'post'

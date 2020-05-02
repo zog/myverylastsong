@@ -25,3 +25,5 @@ yarn-debug.log*
 
 /config/master.key
 config/local-certs
+
+.env

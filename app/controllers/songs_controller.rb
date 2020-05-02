@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     respond_to do |f|
       f.html
@@ -35,10 +37,13 @@ class SongsController < ApplicationController
   end
 
   def create
-    data = Hash[*params[:song].map{|k, v| [k.underscore, v]}.flatten]
-    data[:spotify_id] = data.delete("id")
-    data[:artists] = data.delete("artists").values
-    s = Song.new data
+    s = Song.new(
+      name: params[:song][:name],
+      spotify_id: params[:song][:id],
+      artists: params[:song][:artists].values,
+      album: params[:song][:album],
+      user_id: params[:song][:userID]
+    )
     s.save!
     render json: {status: 'ok'}
   end
