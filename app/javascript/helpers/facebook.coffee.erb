@@ -33,7 +33,6 @@ window.statusChangeCallback = (response) ->
 window.connected = ->
   FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
     id = response.id
-    console.log(response)
     $.ajax
       method: "post"
       url: "/users"

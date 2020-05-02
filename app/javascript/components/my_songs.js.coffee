@@ -13,7 +13,15 @@ window.MySongs = class
 
     $('.my-link').show().attr('href', $('.my-link').attr('href') + @userID)
     $('.my-link').html $('.my-link').attr('href')
-    $('.fb-share').attr 'src', $('.fb-share').attr('src') + @userID
+    $('.fb-share').click (e) ->
+      e.preventDefault()
+      FB.ui(
+        {
+          method: 'share',
+          href: 'https://www.myverylastsong.com/' + @userID
+        },
+        (response) -> {}
+      )
     $('.logged').show()
     $('.unlogged').hide()
     $('.user-first-name').html @userData.firstName
