@@ -2,6 +2,12 @@ require "open-uri"
 
 class Song < ActiveRecord::Base
 
+  belongs_to :user, primary_key: :uuid
+
+  after_commit do
+    user.save_playlist
+  end
+
   def self.top limit=3
     group(:spotify_id).limit(limit).count.keys.map{|k| Song.where(spotify_id: k).last}
   end
@@ -20,6 +26,10 @@ class Song < ActiveRecord::Base
 
   def full_name
     [artist_name, name].compact.join(' - ')
+  end
+
+  def spotify_uri
+    "spotify:track:#{spotify_id}"
   end
 
   def fetch_itunes_link

@@ -19,13 +19,30 @@ window.MySongs = class
     $('.user-first-name').html @userData.firstName
     $('.user-last-name').html @userData.lastName
 
+    @newSongInput.keyup (e)=>
+      @searchForSong(e)
+
     @newSong.submit (e)=>
-      val = @newSongInput.val()
-      $.ajax
-        url: '/search?q=' + val
-        success: (data)=>
-          @displayResults data
-      e.preventDefault()
+      @searchForSong(e)
+
+  searchForSong: (e)->
+    return if @searching
+
+    val = @newSongInput.val()
+    if val.length == 0
+      @resetResults()
+      @initResultsBehaviours()
+      return
+
+    @searching = true
+    $.ajax
+      url: '/search?q=' + val
+      success: (data)=>
+        @searching = false
+        @displayResults data
+      error: =>
+        @searching = false
+    e.preventDefault()
 
   setAvatar: (url)->
     $('.logo .avatar').attr 'src', url
@@ -154,7 +171,6 @@ window.MySongs = class
         @loaded = true
 
   addSong: (data)->
-    console.log(data)
     data["userID"] = @userID
     $.ajax
       method: 'post'

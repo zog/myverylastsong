@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.7.0"
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'puma'
 
 gem 'haml-rails'
@@ -28,25 +30,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 group :development, :test do
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   gem 'guard-livereload'
   gem 'guard-rails'
   gem 'guard-rspec', require: false
   gem 'guard-spork'
   gem 'guard'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rspec_junit_formatter'
   gem 'rspec-its'
   gem 'rspec-rails', '4.0.0.rc1'
   gem 'rspec'
   gem 'spork'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'web-console', '>= 3.3.0'
 end

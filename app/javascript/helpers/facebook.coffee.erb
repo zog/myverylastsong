@@ -31,8 +31,9 @@ window.statusChangeCallback = (response) ->
     # document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.'
 
 window.connected = ->
-  FB.api '/me',  {fields: 'first_name, last_name, gender, bio'}, (response) ->
+  FB.api '/me',  {fields: 'first_name, last_name, gender'}, (response) ->
     id = response.id
+    console.log(response)
     $.ajax
       method: "post"
       url: "/users"

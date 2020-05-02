@@ -16,37 +16,4 @@
 // const imagePath = (name) => images(name, true)
 require('jquery')
 
-import '../components/my_songs.js'
 import '../components/badges.js'
-import '../helpers/facebook.coffee'
-
-$(document).ready(function() {
-  $(".no-songs a").click((e) => {
-    e.preventDefault()
-    $('#new_song input').focus()
-  })
-
-  window.playDisk = false
-
-  const stopDisk = () => {
-    if(window.playDisk){
-      setTimeout(
-        stopDisk
-        , 2000
-      )
-    }
-    else {
-      $('.unlogged .logo').removeClass('play')
-    }
-  }
-
-  $('.unlogged .logo:not(.play)').mouseleave(() => {
-    window.playDisk = false
-  })
-
-  $('.unlogged .logo:not(.play)').mouseenter(() => {
-    window.playDisk = true
-    $('.unlogged .logo').addClass('play')
-    setTimeout(stopDisk, 2000)
-  })
-})

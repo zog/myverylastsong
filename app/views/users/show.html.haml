@@ -14,7 +14,7 @@
     = @user.last_name
   #songs
     %h4 Playlist
-    %a.pull-right.play-on-spotify.only-desktop{href: "https://open.spotify.com/trackset/MVLS — #{@user.first_name} #{@user.last_name}/#{@songs.order(:seq).pluck(:spotify_id).compact.join(',')}", target: "_blank"}
+    %a.pull-right.play-on-spotify.only-desktop{href: "https://open.spotify.com/playlist/#{@user.playlist_id}", target: "_blank"}
       Play it on Spotify
       •
       #{@songs.count} songs
@@ -49,4 +49,4 @@
 
 
 - content_for :scripts do
-  = javascript_include_tag :badges
+  = javascript_pack_tag :user

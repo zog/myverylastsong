@@ -27,6 +27,7 @@ class SongsController < ApplicationController
     params[:sequence].each_with_index do |id, i|
       Song.where(spotify_id: id).update_all seq: i
     end
+    Song.where(spotify_id: params[:sequence].first).take.user.save_playlist
     render json: {status: 'ok'}
   end
 
