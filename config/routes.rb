@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get '/:user_id', to: 'users#show'
   post '/users', to: 'users#upsert'
 
-  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
+  get '/.well-known/acme-challenge/:id' => 'application#letsencrypt'
 end
