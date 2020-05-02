@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     u.first_name ||= params[:first_name]
     u.last_name ||= params[:last_name]
     u.gender ||= params[:gender]
+    u.avatar_url = nil if u.updated_at < 1.day.ago
     u.avatar_url ||= params[:avatar_url]
     u.save
     render json: {status: 'ok', userId: u.uuid, firstName: u.first_name, lastName: u.last_name}
