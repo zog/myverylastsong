@@ -3,7 +3,7 @@ threads_count = Integer(ENV['THREAD_COUNT'] || 5)
 threads threads_count, threads_count
 
 rackup      DefaultRackup
-port        3001
+port        ENV.fetch("PORT") { 3001 }
 
 environment ENV['RAILS_ENV'] || 'development'
 
