@@ -4,9 +4,10 @@ threads threads_count, threads_count
 
 rackup      DefaultRackup
 port        3001
-environment ENV['RAILS_ENV'] || 'production'
 
-if ENV['RAILS_ENV'] == 'development'
+environment ENV['RAILS_ENV'] || 'development'
+
+if ENV.fetch('RAILS_ENV', 'development') == 'development'
   localhost_key = "#{File.join('config', 'local-certs', 'localhost-key.pem')}"
   localhost_crt = "#{File.join('config', 'local-certs', 'localhost.pem')}"
   # To be able to use rake etc

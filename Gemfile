@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-# gem 'omniauth'
-# gem 'omniauth-facebook', '1.4.0'
+gem 'puma'
 
 gem 'haml-rails'
+
 gem 'rspotify'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,8 +17,6 @@ gem 'uglifier'
 gem 'webpacker', '~> 4.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -27,20 +25,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# gem 'rb-fchange', :require=>false
-# gem 'rb-fsevent', :require=>false
-# gem 'rb-inotify', :require=>false
-# gem 'rsense'
-# Guard
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
 
@@ -57,7 +41,6 @@ group :development, :test do
   gem 'rspec-rails', '4.0.0.rc1'
   gem 'rspec'
   gem 'spork'
-
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '>= 3.3.0'
