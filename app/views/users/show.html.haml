@@ -1,17 +1,13 @@
 .col-md-12
   = render partial: "shared/logo", locals: {spin_once: true}
-  / .disclaimer.block
-  /   I am&nbsp;
-  /   %span.name<>= @user.name
-  /   , and those are the songs I wish to be played during my funerals
-
-  / .only-desktop.share.block
-  /   = link_to "Share my own Very Last Songs", root_url, class: "btn btn-primary btn-lg"
-
 
   %h2
     = @user.first_name
     = @user.last_name
+    .small
+      created this playlist on My Very Last Song.
+      %br
+      These are the last songs they want to hear. Ever
   #songs
     %h4 Playlist
     %a.pull-right.play-on-spotify.only-desktop{href: "https://open.spotify.com/playlist/#{@user.playlist_id}", target: "_blank"}
