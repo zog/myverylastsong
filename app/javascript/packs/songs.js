@@ -21,6 +21,7 @@ import '../components/badges.js'
 import '../helpers/facebook.coffee'
 
 $(document).ready(function() {
+
   $(".no-songs a").click((e) => {
     e.preventDefault()
     $('#new_song input').focus()

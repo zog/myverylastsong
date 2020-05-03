@@ -65,6 +65,17 @@
             %h1 My Very Last Song
 
         #content.row
+          .doNotTrack
+            %h1 OOPS
+            %p
+              My Very Last Song uses Facebook Connect to save your playlist
+              %br
+              We don't use any info that is not publicly accessible on your profile.
+              %br
+              If you want to use our little service, please
+              %strong disable the tracking protection on your browser
+              (click on the blue shield in the URL toolbar)
+
           .loading
             .col-md-12= render partial: "shared/logo"
           .loaded= yield

@@ -31,6 +31,26 @@ body
   margin: auto
   position: relative
 
+.doNotTrack
+  position: fixed
+  z-index: 101
+  color: black
+  width: 600px
+  margin-left: -300px
+  left: 50%
+  top: 250px
+  text-align: center
+  font-size: 1.1em
+  &:after
+    position: absolute
+    content: ''
+    background: rgba(255,255,255,0.95)
+    left: -10000px
+    right: -10000px
+    top: -10000px
+    bottom: -10000px
+    z-index: -1
+
 .scroll-wrapper
   overflow: hidden
   padding-bottom: 71px

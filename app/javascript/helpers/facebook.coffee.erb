@@ -49,6 +49,7 @@ window.connected = ->
               avatar_url: response.data.url
 
 window.fbAsyncInit = ->
+  $('.doNotTrack').hide()
   FB.init
     appId: <%= Rails.env.development? ? '1576628125970347' : '1576626152637211' %>
     cookie: true
